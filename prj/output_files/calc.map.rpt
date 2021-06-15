@@ -1,0 +1,796 @@
+Analysis & Synthesis report for calc
+Sat May 29 17:26:04 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |cal_top|key_filter:my_key_filter|state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: opera:my_opera|lpm_divide:Div0
+ 15. Parameter Settings for Inferred Entity Instance: opera:my_opera|lpm_mult:Mult0
+ 16. lpm_mult Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "opera:my_opera"
+ 18. Port Connectivity Checks: "add:my_add"
+ 19. Port Connectivity Checks: "dig_dynamic:my_dig_dynamic"
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                   ;
++-----------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sat May 29 17:26:04 2021            ;
+; Quartus II 64-Bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name               ; calc                                             ;
+; Top-level Entity Name       ; cal_top                                          ;
+; Family                      ; MAX II                                           ;
+; Total logic elements        ; 818                                              ;
+; Total pins                  ; 22                                               ;
+; Total virtual pins          ; 0                                                ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                                    ;
++-----------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EPM1270T144C5      ;                    ;
+; Top-level entity name                                                      ; cal_top            ; calc               ;
+; Family name                                                                ; MAX II             ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                      ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; ../src/opera.v                   ; yes             ; User Verilog HDL File        ; C:/Users/Ray/Desktop/Calc_Demo/src/opera.v                        ;         ;
+; ../src/key_filter.v              ; yes             ; User Verilog HDL File        ; C:/Users/Ray/Desktop/Calc_Demo/src/key_filter.v                   ;         ;
+; ../src/key_array.v               ; yes             ; User Verilog HDL File        ; C:/Users/Ray/Desktop/Calc_Demo/src/key_array.v                    ;         ;
+; ../src/dig_dynamic.v             ; yes             ; User Verilog HDL File        ; C:/Users/Ray/Desktop/Calc_Demo/src/dig_dynamic.v                  ;         ;
+; ../src/cal_top.v                 ; yes             ; User Verilog HDL File        ; C:/Users/Ray/Desktop/Calc_Demo/src/cal_top.v                      ;         ;
+; ../src/bcd_d.v                   ; yes             ; User Verilog HDL File        ; C:/Users/Ray/Desktop/Calc_Demo/src/bcd_d.v                        ;         ;
+; ../src/add.v                     ; yes             ; User Verilog HDL File        ; C:/Users/Ray/Desktop/Calc_Demo/src/add.v                          ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/aglobal130.inc      ;         ;
+; db/lpm_divide_o2m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/lpm_divide_o2m.tdf          ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/sign_div_unsign_9nh.tdf     ;         ;
+; db/alt_u_div_doe.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/alt_u_div_doe.tdf           ;         ;
+; db/add_sub_e7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_e7c.tdf             ;         ;
+; db/add_sub_f7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_f7c.tdf             ;         ;
+; db/add_sub_v8c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_v8c.tdf             ;         ;
+; db/add_sub_09c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_09c.tdf             ;         ;
+; db/add_sub_19c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_19c.tdf             ;         ;
+; db/add_sub_29c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_29c.tdf             ;         ;
+; db/add_sub_g7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_g7c.tdf             ;         ;
+; db/add_sub_h7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_h7c.tdf             ;         ;
+; db/add_sub_i7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_i7c.tdf             ;         ;
+; db/add_sub_j7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_j7c.tdf             ;         ;
+; db/add_sub_k7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_k7c.tdf             ;         ;
+; db/add_sub_l7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_l7c.tdf             ;         ;
+; db/add_sub_m7c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_m7c.tdf             ;         ;
+; db/add_sub_u8c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/add_sub_u8c.tdf             ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/quartus ii/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_ers.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ray/Desktop/Calc_Demo/prj/db/mult_ers.tdf                ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 818   ;
+;     -- Combinational with no register       ; 706   ;
+;     -- Register only                        ; 21    ;
+;     -- Combinational with a register        ; 91    ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 309   ;
+;     -- 3 input functions                    ; 358   ;
+;     -- 2 input functions                    ; 110   ;
+;     -- 1 input functions                    ; 20    ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 575   ;
+;     -- arithmetic mode                      ; 243   ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 20    ;
+;     -- asynchronous clear/load mode         ; 90    ;
+;                                             ;       ;
+; Total registers                             ; 112   ;
+; Total logic cells in carry chains           ; 269   ;
+; I/O pins                                    ; 22    ;
+; Maximum fan-out node                        ; Clk   ;
+; Maximum fan-out                             ; 108   ;
+; Total fan-out                               ; 2866  ;
+; Average fan-out                             ; 3.41  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                             ;
++--------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                 ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                                                            ; Library Name ;
++--------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |cal_top                                   ; 818 (61)    ; 112          ; 0          ; 22   ; 0            ; 706 (10)     ; 21 (5)            ; 91 (46)          ; 269 (0)         ; 0 (0)      ; |cal_top                                                                                                                                       ; work         ;
+;    |add:my_add|                            ; 39 (39)     ; 0            ; 0          ; 0    ; 0            ; 39 (39)      ; 0 (0)             ; 0 (0)            ; 24 (24)         ; 0 (0)      ; |cal_top|add:my_add                                                                                                                            ; work         ;
+;    |bcd_d:my_bcd_d|                        ; 91 (91)     ; 0            ; 0          ; 0    ; 0            ; 91 (91)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |cal_top|bcd_d:my_bcd_d                                                                                                                        ; work         ;
+;    |dig_dynamic:my_dig_dynamic|            ; 79 (79)     ; 20           ; 0          ; 0    ; 0            ; 59 (59)      ; 10 (10)           ; 10 (10)          ; 15 (15)         ; 0 (0)      ; |cal_top|dig_dynamic:my_dig_dynamic                                                                                                            ; work         ;
+;    |key_array:my_array|                    ; 32 (32)     ; 9            ; 0          ; 0    ; 0            ; 23 (23)      ; 2 (2)             ; 7 (7)            ; 0 (0)           ; 0 (0)      ; |cal_top|key_array:my_array                                                                                                                    ; work         ;
+;    |key_filter:my_key_filter|              ; 47 (47)     ; 32           ; 0          ; 0    ; 0            ; 15 (15)      ; 4 (4)             ; 28 (28)          ; 20 (20)         ; 0 (0)      ; |cal_top|key_filter:my_key_filter                                                                                                              ; work         ;
+;    |opera:my_opera|                        ; 469 (120)   ; 0            ; 0          ; 0    ; 0            ; 469 (120)    ; 0 (0)             ; 0 (0)            ; 210 (28)        ; 0 (0)      ; |cal_top|opera:my_opera                                                                                                                        ; work         ;
+;       |lpm_divide:Div0|                    ; 223 (0)     ; 0            ; 0          ; 0    ; 0            ; 223 (0)      ; 0 (0)             ; 0 (0)            ; 114 (0)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0                                                                                                        ; work         ;
+;          |lpm_divide_o2m:auto_generated|   ; 223 (0)     ; 0            ; 0          ; 0    ; 0            ; 223 (0)      ; 0 (0)             ; 0 (0)            ; 114 (0)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated                                                                          ; work         ;
+;             |sign_div_unsign_9nh:divider|  ; 223 (0)     ; 0            ; 0          ; 0    ; 0            ; 223 (0)      ; 0 (0)             ; 0 (0)            ; 114 (0)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider                                              ; work         ;
+;                |alt_u_div_doe:divider|     ; 223 (108)   ; 0            ; 0          ; 0    ; 0            ; 223 (108)    ; 0 (0)             ; 0 (0)            ; 114 (0)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider                        ; work         ;
+;                   |add_sub_09c:add_sub_11| ; 13 (13)     ; 0            ; 0          ; 0    ; 0            ; 13 (13)      ; 0 (0)             ; 0 (0)            ; 13 (13)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_09c:add_sub_11 ; work         ;
+;                   |add_sub_19c:add_sub_12| ; 14 (14)     ; 0            ; 0          ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 0 (0)            ; 14 (14)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_19c:add_sub_12 ; work         ;
+;                   |add_sub_29c:add_sub_13| ; 15 (15)     ; 0            ; 0          ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 0 (0)            ; 15 (15)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_29c:add_sub_13 ; work         ;
+;                   |add_sub_f7c:add_sub_1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_f7c:add_sub_1  ; work         ;
+;                   |add_sub_g7c:add_sub_2|  ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 4 (4)           ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_g7c:add_sub_2  ; work         ;
+;                   |add_sub_h7c:add_sub_3|  ; 5 (5)       ; 0            ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 5 (5)           ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_h7c:add_sub_3  ; work         ;
+;                   |add_sub_i7c:add_sub_4|  ; 6 (6)       ; 0            ; 0          ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 6 (6)           ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_i7c:add_sub_4  ; work         ;
+;                   |add_sub_j7c:add_sub_5|  ; 7 (7)       ; 0            ; 0          ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 7 (7)           ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_j7c:add_sub_5  ; work         ;
+;                   |add_sub_k7c:add_sub_6|  ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 8 (8)           ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_k7c:add_sub_6  ; work         ;
+;                   |add_sub_l7c:add_sub_7|  ; 9 (9)       ; 0            ; 0          ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 9 (9)           ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_l7c:add_sub_7  ; work         ;
+;                   |add_sub_m7c:add_sub_8|  ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_m7c:add_sub_8  ; work         ;
+;                   |add_sub_u8c:add_sub_9|  ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 11 (11)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_u8c:add_sub_9  ; work         ;
+;                   |add_sub_v8c:add_sub_10| ; 12 (12)     ; 0            ; 0          ; 0    ; 0            ; 12 (12)      ; 0 (0)             ; 0 (0)            ; 12 (12)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_divide:Div0|lpm_divide_o2m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_doe:divider|add_sub_v8c:add_sub_10 ; work         ;
+;       |lpm_mult:Mult0|                     ; 126 (0)     ; 0            ; 0          ; 0    ; 0            ; 126 (0)      ; 0 (0)             ; 0 (0)            ; 68 (0)          ; 0 (0)      ; |cal_top|opera:my_opera|lpm_mult:Mult0                                                                                                         ; work         ;
+;          |mult_ers:auto_generated|         ; 126 (126)   ; 0            ; 0          ; 0    ; 0            ; 126 (126)    ; 0 (0)             ; 0 (0)            ; 68 (68)         ; 0 (0)      ; |cal_top|opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated                                                                                 ; work         ;
++--------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------+
+; State Machine - |cal_top|key_filter:my_key_filter|state                 ;
++---------------+---------------+------------+---------------+------------+
+; Name          ; state.FILTER1 ; state.DOWN ; state.FILTER0 ; state.IDEL ;
++---------------+---------------+------------+---------------+------------+
+; state.IDEL    ; 0             ; 0          ; 0             ; 0          ;
+; state.FILTER0 ; 0             ; 0          ; 1             ; 1          ;
+; state.DOWN    ; 0             ; 1          ; 0             ; 1          ;
+; state.FILTER1 ; 1             ; 0          ; 0             ; 1          ;
++---------------+---------------+------------+---------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++-----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------+------------------------+
+; add:my_add|out_a[13]                                ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[13]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[13]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|dis_flago                            ; opera:my_opera|dis_flago ; yes                    ;
+; add:my_add|out_a[12]                                ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[12]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[12]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[11]                                ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[11]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[11]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[10]                                ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[10]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[10]                            ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[9]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[9]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[9]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[8]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[8]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[8]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[7]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[7]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[7]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[6]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[6]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[6]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[5]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[5]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[5]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[4]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[4]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[4]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[3]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[3]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[3]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[2]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[2]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[2]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[1]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[1]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[1]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; add:my_add|out_a[0]                                 ; add:my_add|num_flag      ; yes                    ;
+; opera:my_opera|out_a[0]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|out_b[0]                             ; opera:my_opera|out_a[13] ; yes                    ;
+; opera:my_opera|opera_flago[0]                       ; opera:my_opera|dis_flago ; yes                    ;
+; opera:my_opera|opera_flago[2]                       ; opera:my_opera|dis_flago ; yes                    ;
+; opera:my_opera|opera_flago[1]                       ; opera:my_opera|dis_flago ; yes                    ;
+; Number of user-specified and inferred latches = 46  ;                          ;                        ;
++-----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; opera_flag[3]                         ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 112   ;
+; Number of registers using Synchronous Clear  ; 20    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 90    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 58    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; key_array:my_array|key_c[1]             ; 9       ;
+; key_array:my_array|key_c[2]             ; 7       ;
+; key_array:my_array|key_c[3]             ; 3       ;
+; dig_dynamic:my_dig_dynamic|dig_sel_r[1] ; 15      ;
+; dig_dynamic:my_dig_dynamic|dig_sel_r[2] ; 9       ;
+; dig_dynamic:my_dig_dynamic|dig_sel_r[3] ; 8       ;
+; key_filter:my_key_filter|key_state      ; 3       ;
+; key_array:my_array|key_out[2]           ; 2       ;
+; key_array:my_array|key_out[1]           ; 2       ;
+; Total number of inverted registers = 9  ;         ;
++-----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |cal_top|num_a[9]                        ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |cal_top|num_b[3]                        ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |cal_top|opera:my_opera|out_a[5]         ;
+; 20:1               ; 3 bits    ; 39 LEs        ; 18 LEs               ; 21 LEs                 ; No         ; |cal_top|dig_dynamic:my_dig_dynamic|Mux1 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: opera:my_opera|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                               ;
+; LPM_WIDTHD             ; 14             ; Untyped                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_o2m ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: opera:my_opera|lpm_mult:Mult0  ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 14       ; Untyped             ;
+; LPM_WIDTHB                                     ; 14       ; Untyped             ;
+; LPM_WIDTHP                                     ; 28       ; Untyped             ;
+; LPM_WIDTHR                                     ; 28       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX II   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_ers ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                        ;
++---------------------------------------+-------------------------------+
+; Name                                  ; Value                         ;
++---------------------------------------+-------------------------------+
+; Number of entity instances            ; 1                             ;
+; Entity Instance                       ; opera:my_opera|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 14                            ;
+;     -- LPM_WIDTHB                     ; 14                            ;
+;     -- LPM_WIDTHP                     ; 28                            ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                            ;
+;     -- USE_EAB                        ; OFF                           ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                          ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                            ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                            ;
++---------------------------------------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "opera:my_opera"                                                                                                                                                                    ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                          ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; key_num ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "add:my_add"                                                                                                                                                                        ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                          ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; key_num ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------+
+; Port Connectivity Checks: "dig_dynamic:my_dig_dynamic" ;
++------+-------+----------+------------------------------+
+; Port ; Type  ; Severity ; Details                      ;
++------+-------+----------+------------------------------+
+; En   ; Input ; Info     ; Stuck at VCC                 ;
++------+-------+----------+------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Sat May 29 17:26:00 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off calc -c calc
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/opera.v
+    Info (12023): Found entity 1: opera
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/key_filter.v
+    Info (12023): Found entity 1: key_filter
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/key_array.v
+    Info (12023): Found entity 1: key_array
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/key.v
+    Info (12023): Found entity 1: key
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/dig_dynamic.v
+    Info (12023): Found entity 1: dig_dynamic
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/cal_top.v
+    Info (12023): Found entity 1: cal_top
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/bcd_d.v
+    Info (12023): Found entity 1: bcd_d
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ray/desktop/calc_demo/src/add.v
+    Info (12023): Found entity 1: add
+Info (12127): Elaborating entity "cal_top" for the top level hierarchy
+Info (12128): Elaborating entity "key_filter" for hierarchy "key_filter:my_key_filter"
+Info (12128): Elaborating entity "key_array" for hierarchy "key_array:my_array"
+Info (12128): Elaborating entity "dig_dynamic" for hierarchy "dig_dynamic:my_dig_dynamic"
+Info (12128): Elaborating entity "bcd_d" for hierarchy "bcd_d:my_bcd_d"
+Info (12128): Elaborating entity "add" for hierarchy "add:my_add"
+Warning (10230): Verilog HDL assignment warning at add.v(12): truncated value with size 32 to match size of target (14)
+Warning (10240): Verilog HDL Always Construct warning at add.v(11): inferring latch(es) for variable "out_a", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "out_a[0]" at add.v(11)
+Info (10041): Inferred latch for "out_a[1]" at add.v(11)
+Info (10041): Inferred latch for "out_a[2]" at add.v(11)
+Info (10041): Inferred latch for "out_a[3]" at add.v(11)
+Info (10041): Inferred latch for "out_a[4]" at add.v(11)
+Info (10041): Inferred latch for "out_a[5]" at add.v(11)
+Info (10041): Inferred latch for "out_a[6]" at add.v(11)
+Info (10041): Inferred latch for "out_a[7]" at add.v(11)
+Info (10041): Inferred latch for "out_a[8]" at add.v(11)
+Info (10041): Inferred latch for "out_a[9]" at add.v(11)
+Info (10041): Inferred latch for "out_a[10]" at add.v(11)
+Info (10041): Inferred latch for "out_a[11]" at add.v(11)
+Info (10041): Inferred latch for "out_a[12]" at add.v(11)
+Info (10041): Inferred latch for "out_a[13]" at add.v(11)
+Info (12128): Elaborating entity "opera" for hierarchy "opera:my_opera"
+Warning (10240): Verilog HDL Always Construct warning at opera.v(27): inferring latch(es) for variable "opera_flago", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at opera.v(27): inferring latch(es) for variable "out_a", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at opera.v(27): inferring latch(es) for variable "out_b", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at opera.v(27): inferring latch(es) for variable "dis_flago", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "dis_flago" at opera.v(27)
+Info (10041): Inferred latch for "out_b[0]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[1]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[2]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[3]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[4]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[5]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[6]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[7]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[8]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[9]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[10]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[11]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[12]" at opera.v(27)
+Info (10041): Inferred latch for "out_b[13]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[0]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[1]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[2]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[3]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[4]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[5]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[6]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[7]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[8]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[9]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[10]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[11]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[12]" at opera.v(27)
+Info (10041): Inferred latch for "out_a[13]" at opera.v(27)
+Info (10041): Inferred latch for "opera_flago[0]" at opera.v(27)
+Info (10041): Inferred latch for "opera_flago[1]" at opera.v(27)
+Info (10041): Inferred latch for "opera_flago[2]" at opera.v(27)
+Info (10041): Inferred latch for "opera_flago[3]" at opera.v(27)
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "opera:my_opera|Div0"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "opera:my_opera|Mult0"
+Info (12130): Elaborated megafunction instantiation "opera:my_opera|lpm_divide:Div0"
+Info (12133): Instantiated megafunction "opera:my_opera|lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "14"
+    Info (12134): Parameter "LPM_WIDTHD" = "14"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_o2m.tdf
+    Info (12023): Found entity 1: lpm_divide_o2m
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_doe.tdf
+    Info (12023): Found entity 1: alt_u_div_doe
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_e7c.tdf
+    Info (12023): Found entity 1: add_sub_e7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_f7c.tdf
+    Info (12023): Found entity 1: add_sub_f7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_v8c.tdf
+    Info (12023): Found entity 1: add_sub_v8c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_09c.tdf
+    Info (12023): Found entity 1: add_sub_09c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_19c.tdf
+    Info (12023): Found entity 1: add_sub_19c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_29c.tdf
+    Info (12023): Found entity 1: add_sub_29c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_g7c.tdf
+    Info (12023): Found entity 1: add_sub_g7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_h7c.tdf
+    Info (12023): Found entity 1: add_sub_h7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_i7c.tdf
+    Info (12023): Found entity 1: add_sub_i7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_j7c.tdf
+    Info (12023): Found entity 1: add_sub_j7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_k7c.tdf
+    Info (12023): Found entity 1: add_sub_k7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_l7c.tdf
+    Info (12023): Found entity 1: add_sub_l7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_m7c.tdf
+    Info (12023): Found entity 1: add_sub_m7c
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u8c.tdf
+    Info (12023): Found entity 1: add_sub_u8c
+Info (12130): Elaborated megafunction instantiation "opera:my_opera|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "opera:my_opera|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "14"
+    Info (12134): Parameter "LPM_WIDTHB" = "14"
+    Info (12134): Parameter "LPM_WIDTHP" = "28"
+    Info (12134): Parameter "LPM_WIDTHR" = "28"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_ers.tdf
+    Info (12023): Found entity 1: mult_ers
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following LCELL buffer node(s):
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[13]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[12]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[11]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[10]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[9]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[8]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[7]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[15]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[15]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[13]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[12]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[11]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[10]"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following LCELL buffer node(s):
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[6]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[5]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[4]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[3]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[2]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le10a[1]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le3a[15]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le3a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le4a[15]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le4a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le4a[13]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le4a[12]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le5a[15]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le5a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le5a[13]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le5a[12]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le5a[11]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le5a[10]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[15]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[13]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[12]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[11]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[10]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[9]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le6a[8]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[15]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[14]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[13]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[12]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[11]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[10]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[9]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[8]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[7]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le7a[6]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[13]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[12]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[11]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[10]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[9]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[8]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[7]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[6]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[5]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le8a[4]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[9]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[8]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[7]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[6]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[5]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[4]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[3]"
+        Warning (14320): Synthesized away node "opera:my_opera|lpm_mult:Mult0|mult_ers:auto_generated|le9a[2]"
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 159 buffer(s)
+    Info (13019): Ignored 159 SOFT buffer(s)
+Warning (13012): Latch opera:my_opera|out_a[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_a[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|out_b[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal dis_flag
+Warning (13012): Latch opera:my_opera|opera_flago[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal key_num[2]
+Warning (13012): Latch opera:my_opera|opera_flago[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal key_num[1]
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "dig_data[7]" is stuck at GND
+Info (18000): Registers with preset signals will power-up high
+Info (21057): Implemented 840 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 818 logic cells
+Info (144001): Generated suppressed messages file C:/Users/Ray/Desktop/Calc_Demo/prj/output_files/calc.map.smsg
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 143 warnings
+    Info: Peak virtual memory: 4604 megabytes
+    Info: Processing ended: Sat May 29 17:26:04 2021
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Ray/Desktop/Calc_Demo/prj/output_files/calc.map.smsg.
+
+

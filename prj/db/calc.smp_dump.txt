@@ -1,0 +1,7 @@
+
+State Machine - |cal_top|key_filter:my_key_filter|state
+Name state.FILTER1 state.DOWN state.FILTER0 state.IDEL 
+state.IDEL 0 0 0 0 
+state.FILTER0 0 0 1 1 
+state.DOWN 0 1 0 1 
+state.FILTER1 1 0 0 1 

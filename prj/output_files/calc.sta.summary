@@ -1,0 +1,41 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'en'
+Slack : -83.063
+TNS   : -831.768
+
+Type  : Setup 'Clk'
+Slack : -7.646
+TNS   : -578.560
+
+Type  : Setup 'dig_dynamic:my_dig_dynamic|Clk_1k'
+Slack : -1.208
+TNS   : -4.411
+
+Type  : Hold 'Clk'
+Slack : -2.546
+TNS   : -16.645
+
+Type  : Hold 'en'
+Slack : -1.433
+TNS   : -5.153
+
+Type  : Hold 'dig_dynamic:my_dig_dynamic|Clk_1k'
+Slack : 1.437
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'Clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'dig_dynamic:my_dig_dynamic|Clk_1k'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'en'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------
